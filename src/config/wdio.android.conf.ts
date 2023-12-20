@@ -1,7 +1,6 @@
 import config from './wdio.shared.local.appium.conf';
-import {capsylAppPackage, capsylAppActivity} from '../src/resources/packages.bundles'
-import androidDevice from '../src/resources/devices/android.device.info'
 import type{Options} from '@wdio/types'
+
 
 // ============
 // Specs
@@ -11,7 +10,7 @@ config.specs = [
 ];
 
 config.cucumberOpts = [{
-    require: ['../src/*.ts']
+    require: ['../step-definitions/*.ts']
 }]
 
 // config.cucumberOpts = [
@@ -33,9 +32,9 @@ config.capabilities = [
         noReset: true,
         appPackage: appPackage,
         appActivity: appActivity,
-        deviceName: androidDevice.deviceName,
-        platformVersion: androidDevice.platFormVersion,
-        udid: androidDevice.udid,
+        deviceName: devicename,
+        platformVersion: 11,
+        udid: udid,
         orientation: 'PORTRAIT',
         path: '/wd/hub',
         newCommandTimeout: 1500

@@ -29,6 +29,5 @@
     "compile": "tsc",
     "pretest": "rimraf allure-results",
     "android": "wdio run config/android.conf.ts",
-    "ios": "wdio run config/ios.conf.ts"
   }
 }
