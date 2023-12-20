@@ -28,6 +28,6 @@
   "scripts": {
     "compile": "tsc",
     "pretest": "rimraf allure-results",
-    "android": "wdio run config/android.conf.ts"
+    "android": "wdio run config/wdio.conf.ts"
   }
 }

@@ -1,4 +1,4 @@
-import {When} from "@wdio/cucumber-framework";
+import {Then,When} from "@wdio/cucumber-framework";
 import {driver} from "@wdio/globals";
 
 Then(/^User gets screenshot of thumbnail$/, async function () {

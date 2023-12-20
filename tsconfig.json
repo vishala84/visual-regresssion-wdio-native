@@ -16,10 +16,4 @@
     "resolveJsonModule": true,
     "module": "commonJS"
   },
-  "include": [
-    "./src/*.ts",
-  ],
-  "exclude": [
-    "./node_modules"
-  ]
 }

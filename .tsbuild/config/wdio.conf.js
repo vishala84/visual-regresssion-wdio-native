@@ -1,9 +1,7 @@
-// import setOptions from  'expect-webdriverio';
-// const multipleCucumberHtmlReporter = require('multiple-cucumber-html-reporter');
-// const { removeSync } = require('fs-extra');
-// const cucumberJSON = require('wdio-cucumberjs-json-reporter');
-
-export const config = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.config = void 0;
+exports.config = {
     //
     // ====================
     // // Runner Configuration
@@ -19,12 +17,9 @@ export const config = {
         }
     },
     // cJson: cucumberJSON,
-
     // before() {
     //     setOptions({ wait:1000 });
     // },
-
-
     port: 4723,
     //
     // ==================
@@ -42,12 +37,10 @@ export const config = {
     // then the current working directory is where your `package.json` resides, so `wdio`
     // will be called from there.
     //
-    specs: [
-        './features/**/*.feature'
-    ],
+    specs: [],
     // Patterns to exclude.
     exclude: [
-        // 'path/to/excluded/files'
+    // 'path/to/excluded/files'
     ],
     //
     // ============
@@ -141,16 +134,21 @@ export const config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: [['appium', {
-        command: 'appium',
-        args: {
-            // This is needed to tell Appium that we can execute local ADB commands
-            // and to automatically download the latest version of ChromeDriver
-            relaxedSecurity: true,
-            address: "localhost",
-// Write the Appium logs to a file in the root of the directory
-            log: "./reports/appium.log",}
-    }],
+    services: [[
+            'appium',
+            {
+                // This will use the globally installed version of Appium
+                command: 'appium',
+                args: {
+                    // This is needed to tell Appium that we can execute local ADB commands
+                    // and to automatically download the latest version of ChromeDriver
+                    relaxedSecurity: true,
+                    address: 'localhost',
+                    // Write the Appium logs to a file in the root of the directory
+                    log: './appium.log',
+                },
+            },
+        ],
         [
             'native-app-compare',
             // The options
@@ -164,9 +162,6 @@ export const config = {
             },
         ],
     ],
-
-
-
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -187,7 +182,6 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-
     // getDateString: function() {
     //     const date = new Date();
     //     const year = date.getFullYear();
@@ -195,20 +189,18 @@ export const config = {
     //     const day =`${date.getDate()}`.padStart(2, '0');
     //     return `${year}${month}${day}`
     // },
-
     reporters: [
         'spec',
         ['cucumberjs-json', {
-            jsonFolder: './reports/json/tmp/',
-            language: 'en',
-        }],
+                jsonFolder: './reports/json/tmp/',
+                language: 'en',
+            }],
     ],
-
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/steps.ts'],
+        require: ['../step-definitions/*.ts'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -231,7 +223,6 @@ export const config = {
         ignoreUndefinedDefinitions: false
     },
     // appium: { command: 'appium' },
-
     //
     // =====
     // Hooks
@@ -357,7 +348,6 @@ export const config = {
      */
     // afterFeature: function (uri, feature) {
     // },
-
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name
@@ -409,4 +399,4 @@ export const config = {
      */
     // onReload: function(oldSessionId, newSessionId) {
     // }
-}
+};
