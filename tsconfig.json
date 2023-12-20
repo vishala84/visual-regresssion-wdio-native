@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "outDir": ".tsbuild",
+    "moduleResolution": "node",
+    "types": [
+      "node",
+      "webdriverio/async",
+      "@wdio/cucumber-framework",
+      "expect-webdriverio",
+      "@wdio/globals",
+      "wdio-native-app-compare-service"
+    ],
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "module": "commonJS"
+  },
+  "include": [
+    "./src/test/**/*.ts",
+    "./src/test/**/**/*.ts",
+    "./src/test/**/**/**/*.ts"
+  ],
+  "exclude": [
+    "./node_modules"
+  ]
+}
