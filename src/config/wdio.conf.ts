@@ -1,7 +1,7 @@
 // import setOptions from  'expect-webdriverio';
-const multipleCucumberHtmlReporter = require('multiple-cucumber-html-reporter');
-const { removeSync } = require('fs-extra');
-const cucumberJSON = require('wdio-cucumberjs-json-reporter');
+// const multipleCucumberHtmlReporter = require('multiple-cucumber-html-reporter');
+// const { removeSync } = require('fs-extra');
+// const cucumberJSON = require('wdio-cucumberjs-json-reporter');
 
 export const config = {
     //
@@ -18,7 +18,7 @@ export const config = {
             transpileOnly: true
         }
     },
-    cJson: cucumberJSON,
+    // cJson: cucumberJSON,
 
     // before() {
     //     setOptions({ wait:1000 });
@@ -246,7 +246,7 @@ export const config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      */
     onPrepare: function (config, capabilities) {
-        removeSync('./reports/json/tmp/');
+        // removeSync('./reports/json/tmp/');
     },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
@@ -332,10 +332,10 @@ export const config = {
      * @param {Object}             context          Cucumber World object
      */
     afterStep: async function (step, scenario, result) {
-        if (result.error) {
-            let image = await driver.takeScreenshot();
-            await cucumberJSON.default.attach(image, 'image/png');
-        }
+        // if (result.error) {
+        //     let image = await driver.takeScreenshot();
+        //     await cucumberJSON.default.attach(image, 'image/png');
+        // }
     },
     /**
      *
@@ -393,14 +393,14 @@ export const config = {
      * @param {<Object>} results object containing test results
      */
     onComplete: function () {
-        multipleCucumberHtmlReporter.generate({
-            openReportInBrowser: false,
-            reportName: 'Test Report Cloud Automation',
-            displayDuration: true,
-            saveCollectedJSON: false,
-            jsonDir: './reports/json/',
-            reportPath: './reports/html',
-        })
+        // multipleCucumberHtmlReporter.generate({
+        //     openReportInBrowser: false,
+        //     reportName: 'Test Report Cloud Automation',
+        //     displayDuration: true,
+        //     saveCollectedJSON: false,
+        //     jsonDir: './reports/json/',
+        //     reportPath: './reports/html',
+        // })
     }
     /**
      * Gets executed when a refresh happens.
